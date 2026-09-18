@@ -102,3 +102,39 @@ function startGlitch(){
 document.getElementById('secretTrigger').addEventListener('click',()=>show('puzzi'));
 document.getElementById('start-alex-test').addEventListener('click',startAlexTest);
 document.getElementById('glitch-close').addEventListener('click',()=>{const b=document.getElementById('glitch-close');b.textContent='PROJECT STILL RUNNING.';b.disabled=true;});
+
+
+/* ===== EXPLICIT LETTER -> ALEX TEST BUTTON ===== */
+(function(){
+  function injectLetterContinue(){
+    const letter = document.querySelector("#letter-screen, #letter, .letter-screen");
+    if(!letter || letter.classList.contains("hidden")) return;
+    if(document.getElementById("continue-to-alex-test")) return;
+
+    const btn=document.createElement("button");
+    btn.id="continue-to-alex-test";
+    btn.className="choice-btn";
+    btn.textContent="CONTINUA, SE HAI IL CORAGGIO";
+    btn.style.marginTop="28px";
+    btn.addEventListener("click",function(){
+      if(typeof window.startAlexPostCredits==="function"){
+        window.startAlexPostCredits();
+      } else {
+        const target=document.getElementById("alex-test-screen");
+        if(target){
+          document.querySelectorAll(".screen").forEach(s=>s.classList.add("hidden"));
+          target.classList.remove("hidden");
+          if(typeof window.renderAlexQuestion==="function") window.renderAlexQuestion();
+        }
+      }
+    });
+    letter.appendChild(btn);
+  }
+
+  document.addEventListener("DOMContentLoaded",function(){
+    injectLetterContinue();
+    const observer=new MutationObserver(injectLetterContinue);
+    observer.observe(document.body,{subtree:true,attributes:true,attributeFilter:["class"]});
+    setInterval(injectLetterContinue,500);
+  });
+})();
