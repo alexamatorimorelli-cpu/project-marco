@@ -7,7 +7,6 @@
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
-<div id="score-display">SCORE: <span id="score">0</span>/7</div>
   <div class="scanlines"></div>
   <main id="app">
 
@@ -30,53 +29,57 @@
 
     <section class="screen" id="q1">
       <div class="quiz">
+        <div class="score-display">SCORE: <span class="quiz-score">0</span>/7</div>
         <div class="counter">01 / 07</div>
         <h2>Cosa ha colpito subito Alex di Marco?</h2>
         <div class="answers">
-          <button onclick="next('q2')">La timidezza</button>
-          <button onclick="next('q2')">La sfacciataggine</button>
-          <button onclick="next('q2')">I suoi tre mazzi di Magic</button>
-          <button onclick="next('q2')">Il suo amore per i Pokémon</button>
+          <button onclick="answerQuestion(false, 'next('q2')')">La timidezza</button>
+          <button onclick="answerQuestion(true, 'next('q2')')">La sfacciataggine</button>
+          <button onclick="answerQuestion(false, 'next('q2')')">I suoi tre mazzi di Magic</button>
+          <button onclick="answerQuestion(false, 'next('q2')')">Il suo amore per i Pokémon</button>
         </div>
       </div>
     </section>
 
     <section class="screen" id="q2">
       <div class="quiz">
+        <div class="score-display">SCORE: <span class="quiz-score">0</span>/7</div>
         <div class="counter">02 / 07</div>
         <h2>Cosa piace molto ad Alex di Marco quando sono in chiamata?</h2>
         <div class="answers">
-          <button onclick="next('q3')">La sua voce</button>
-          <button onclick="next('q3')">La sua risata</button>
-          <button onclick="next('q3')">Il rumore della tastiera</button>
-          <button onclick="next('q3')">Quando sta zitto</button>
+          <button onclick="answerQuestion(false, 'next('q3')')">La sua voce</button>
+          <button onclick="answerQuestion(true, 'next('q3')')">La sua risata</button>
+          <button onclick="answerQuestion(false, 'next('q3')')">Il rumore della tastiera</button>
+          <button onclick="answerQuestion(false, 'next('q3')')">Quando sta zitto</button>
         </div>
       </div>
     </section>
 
     <section class="screen" id="q3">
       <div class="quiz">
+        <div class="score-display">SCORE: <span class="quiz-score">0</span>/7</div>
         <div class="counter">03 / 07</div>
         <h2>Quali parole usa spesso Marco?</h2>
         <div class="answers">
-          <button onclick="next('q4')">Peffò</button>
-          <button onclick="next('q4')">Chill</button>
-          <button onclick="next('q4')">Sborro</button>
-          <button onclick="next('q4')">Tutte e tre</button>
+          <button onclick="answerQuestion(false, 'next('q4')')">Peffò</button>
+          <button onclick="answerQuestion(false, 'next('q4')')">Chill</button>
+          <button onclick="answerQuestion(false, 'next('q4')')">Sborro</button>
+          <button onclick="answerQuestion(true, 'next('q4')')">Tutte e tre</button>
         </div>
       </div>
     </section>
 
     <section class="screen" id="q4">
       <div class="quiz">
+        <div class="score-display">SCORE: <span class="quiz-score">0</span>/7</div>
         <div class="counter">04 / 07</div>
         <div class="warning">⚠ CASO RUSSATA</div>
         <h2>Cosa è successo durante una chiamata?</h2>
         <div class="answers">
-          <button onclick="next('q5')">Marco ha cantato</button>
-          <button onclick="next('q5')">Marco ha iniziato a parlare di Magic</button>
-          <button class="correct" onclick="evidence()">Marco ha russato</button>
-          <button onclick="next('q5')">Alex si è addormentato</button>
+          <button onclick="answerQuestion(false, 'next('q5')')">Marco ha cantato</button>
+          <button onclick="answerQuestion(false, 'next('q5')')">Marco ha iniziato a parlare di Magic</button>
+          <button onclick="answerQuestion(true, 'evidence()')">Marco ha russato</button>
+          <button onclick="answerQuestion(false, 'next('q5')')">Alex si è addormentato</button>
         </div>
       </div>
     </section>
@@ -98,39 +101,42 @@
 
     <section class="screen" id="q5">
       <div class="quiz">
+        <div class="score-display">SCORE: <span class="quiz-score">0</span>/7</div>
         <div class="counter">05 / 07</div>
         <h2>Cosa hanno guardato insieme per diverse sere?</h2>
         <div class="answers">
-          <button onclick="next('q6')">🧱 Il muro</button>
-          <button onclick="next('q6')">🍈 Le tette di Alex</button>
-          <button onclick="next('q6')">🌃 Cyberpunk: Edgerunners</button>
-          <button onclick="next('q6')">🐦 Un documentario sui piccioni</button>
+          <button onclick="answerQuestion(false, 'next('q6')')">🧱 Il muro</button>
+          <button onclick="answerQuestion(false, 'next('q6')')">🍈 Le tette di Alex</button>
+          <button onclick="answerQuestion(true, 'next('q6')')">🌃 Cyberpunk: Edgerunners</button>
+          <button onclick="answerQuestion(false, 'next('q6')')">🐦 Un documentario sui piccioni</button>
         </div>
       </div>
     </section>
 
     <section class="screen" id="q6">
       <div class="quiz">
+        <div class="score-display">SCORE: <span class="quiz-score">0</span>/7</div>
         <div class="counter">06 / 07</div>
         <h2>Quale di queste cose può fare Marco per 45 minuti senza problemi?</h2>
         <div class="answers">
-          <button onclick="next('q7')">Parlare di Pokémon</button>
-          <button onclick="next('q7')">Parlare di Magic</button>
-          <button onclick="next('q7')">Guardare il soffitto</button>
-          <button onclick="next('q7')">Fare una passeggiata</button>
+          <button onclick="answerQuestion(false, 'next('q7')')">Parlare di Pokémon</button>
+          <button onclick="answerQuestion(true, 'next('q7')')">Parlare di Magic</button>
+          <button onclick="answerQuestion(false, 'next('q7')')">Guardare il soffitto</button>
+          <button onclick="answerQuestion(false, 'next('q7')')">Fare una passeggiata</button>
         </div>
       </div>
     </section>
 
     <section class="screen" id="q7">
       <div class="quiz">
+        <div class="score-display">SCORE: <span class="quiz-score">0</span>/7</div>
         <div class="counter">07 / 07</div>
         <div class="boom">FINAL CHECK</div>
         <h2>Cosa non può misurare questo test?</h2>
         <div class="answers">
-          <button onclick="finale()">Le capacità di Marco a russare e negare</button>
-          <button onclick="finale()">Le quantità di volte in cui dice "chill"</button>
-          <button onclick="finale()">Quanto è importante per Alex</button>
+          <button onclick="answerQuestion(true, 'finale()')">Le capacità di Marco a russare e negare</button>
+          <button onclick="answerQuestion(true, 'finale()')">Le quantità di volte in cui dice "chill"</button>
+          <button onclick="answerQuestion(true, 'finale()')">Quanto è importante per Alex</button>
         </div>
       </div>
     </section>
@@ -141,7 +147,7 @@
         <h2>Marco.exe si è distratto.</h2>
         <p class="muted">Recupera i 5 frammenti prima che il sistema li perda.</p>
         <div class="gamehud">
-          <span>DATI: <b id="score">0 / 5</b></span>
+          <span>DATI: <b id="game-score">0 / 5</b></span>
           <span id="gameMsg">chill.</span>
         </div>
         <div id="arena"></div>

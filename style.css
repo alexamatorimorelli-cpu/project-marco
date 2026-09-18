@@ -75,3 +75,6 @@ button:hover{background:var(--cyan);color:#020509;box-shadow:0 0 24px rgba(0,246
   pointer-events: none;
   opacity: .7;
 }
+
+.score-display{width:fit-content;margin:0 auto 14px;padding:7px 12px;border:1px solid rgba(255,255,255,.25);background:rgba(0,0,0,.55);font-family:monospace;letter-spacing:1px;font-size:.85rem;}
+.answer-feedback{margin:14px auto 0;padding:10px 14px;text-align:center;font-family:monospace;font-weight:700;letter-spacing:1px;animation:feedback-in .2s ease-out}.answer-feedback.correct{border:1px solid rgba(120,255,160,.7)}.answer-feedback.wrong{border:1px solid rgba(255,100,100,.7)}@keyframes feedback-in{from{opacity:0;transform:translateY(-4px)}to{opacity:1;transform:translateY(0)}}
