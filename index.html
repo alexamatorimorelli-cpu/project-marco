@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>PROJECT M.A.R.C.O.</title>
-  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="style.css?v=7">
 </head>
 <body>
   <div class="scanlines"></div>
@@ -189,32 +189,33 @@
         <p>E perché evidentemente un messaggio normale non era abbastanza.</p>
         <p class="signature">- Alex</p>
         <p class="ps">P.S. La russata è successa.</p>
+        <button id="start-alex-test">CONTINUA</button>
+      </div>
+    </section>
+
+
+    <section class="screen" id="alex-test">
+      <div class="quiz">
+        <div class="tiny">POST-PROTOCOL // MARCO.EXE</div>
+        <div class="score-display">SCORE: <span id="alex-score">0</span>/7</div>
+        <div class="counter" id="alex-counter">01 / 07</div>
+        <h2 id="alex-question"></h2>
+        <div class="answers" id="alex-answers"></div>
+        <div id="alex-feedback"></div>
+      </div>
+    </section>
+
+    <section class="screen" id="post-glitch">
+      <div class="terminal center">
+        <div class="warning">SYSTEM SHUTDOWN</div>
+        <div id="glitch-text" class="glitch-text"></div>
+        <button id="glitch-close">CHIUDI PROGETTO</button>
       </div>
     </section>
 
   </main>
 
   <div class="corner" id="secretTrigger" title="...">M.A.R.C.O.</div>
-  <script src="script.js"></script>
-
-<section id="alex-test-screen" class="screen hidden">
-  <div class="terminal-card">
-    <div class="eyebrow">POST-PROTOCOL // MARCO.EXE</div>
-    <h2>HOW WELL DO YOU KNOW ALEX?</h2>
-    <div id="alex-score-display">SCORE: <span id="alex-score">0</span>/7</div>
-    <div id="alex-question"></div>
-    <div id="alex-answers"></div>
-    <div id="alex-feedback"></div>
-  </div>
-</section>
-
-<section id="post-glitch-screen" class="screen hidden">
-  <div class="terminal-card glitch-card">
-    <div class="eyebrow">SYSTEM SHUTDOWN</div>
-    <div id="glitch-text"></div>
-    <button id="close-project-btn" class="choice-btn">CHIUDI PROGETTO</button>
-  </div>
-</section>
-
+  <script src="script.js?v=7"></script>
 </body>
 </html>
