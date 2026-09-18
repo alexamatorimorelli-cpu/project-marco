@@ -101,6 +101,14 @@ function startGlitch(){
 }
 document.getElementById('secretTrigger').addEventListener('click',()=>show('puzzi'));
 document.getElementById('start-alex-test').addEventListener('click',startAlexTest);
-document.getElementById('glitch-close').addEventListener('click',()=>{const b=document.getElementById('glitch-close');b.textContent='PROJECT STILL RUNNING.';b.disabled=true;});
+document.getElementById('glitch-close').addEventListener('click',()=>{
+  const b=document.getElementById('glitch-close');
+  const out=document.getElementById('glitch-text');
+  b.disabled=true;
+  b.textContent='CONNESSIONE TERMINATA.';
+  if(out){
+    out.textContent += '\\n\\n> PROJECT M.A.R.C.O.\\n> STATUS: OFFLINE\\n> GRAZIE PER AVER PARTECIPATO.';
+  }
+});
 
 
