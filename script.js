@@ -67,11 +67,11 @@ function dontPress(){
 
 const alexQuestions=[
  {q:'Quale strumento musicale ha suonato Alex per diversi anni?',a:['Pianoforte','Chitarra classica','Batteria','Basso'],c:1},
- {q:'Quale di queste cose è più probabile che Alex trasformi in un progetto enorme?',a:["Un'idea casuale",'Un lavoretto all'uncinetto','Un regalo','Tutte le precedenti'],c:3},
+ {q:'Quale di queste cose è più probabile che Alex trasformi in un progetto enorme?',a:["Un'idea casuale","Un lavoretto all'uncinetto",'Un regalo','Tutte le precedenti'],c:3},
  {q:'Quale di queste cose fa parte del curriculum di Alex?',a:['Corso HACCP','Certificazione di inglese','Esperienza nella logistica','Tutte le precedenti'],c:3},
  {q:'Quale di queste attività ha fatto Alex come volontariato?',a:['Croce Rossa','Protezione Civile','WWF','Nessuna delle precedenti'],c:0},
- {q:'Quale di queste cose è più probabile che Alex faccia quando ha un'idea per un regalo?',a:['La realizza in cinque minuti','La lascia perdere','La trasforma in un progetto molto più grande del necessario','Compra la prima cosa che trova'],c:2},
- {q:'Quale di queste cose potrebbe far perdere completamente la cognizione del tempo ad Alex?',a:['Fare un progetto creativo','Entrare in un negozio di filati','Avere un'idea per un regalo','Tutte le precedenti'],c:3},
+ {q:"Quale di queste cose è più probabile che Alex faccia quando ha un'idea per un regalo?",a:['La realizza in cinque minuti','La lascia perdere','La trasforma in un progetto molto più grande del necessario','Compra la prima cosa che trova'],c:2},
+ {q:'Quale di queste cose potrebbe far perdere completamente la cognizione del tempo ad Alex?',a:['Fare un progetto creativo','Entrare in un negozio di filati',"Avere un'idea per un regalo",'Tutte le precedenti'],c:3},
  {q:'Quale di queste cose Alex NON potrebbe mai fare senza complicarla?',a:['Preparare un regalo','Organizzare una sorpresa','Fare un semplice sito','A quanto pare, nessuna delle tre'],c:3}
 ];
 let ai=0,ascore=0,alexLocked=false;
@@ -104,37 +104,3 @@ document.getElementById('start-alex-test').addEventListener('click',startAlexTes
 document.getElementById('glitch-close').addEventListener('click',()=>{const b=document.getElementById('glitch-close');b.textContent='PROJECT STILL RUNNING.';b.disabled=true;});
 
 
-/* ===== EXPLICIT LETTER -> ALEX TEST BUTTON ===== */
-(function(){
-  function injectLetterContinue(){
-    const letter = document.querySelector("#letter-screen, #letter, .letter-screen");
-    if(!letter || letter.classList.contains("hidden")) return;
-    if(document.getElementById("continue-to-alex-test")) return;
-
-    const btn=document.createElement("button");
-    btn.id="continue-to-alex-test";
-    btn.className="choice-btn";
-    btn.textContent="CONTINUA, SE HAI IL CORAGGIO";
-    btn.style.marginTop="28px";
-    btn.addEventListener("click",function(){
-      if(typeof window.startAlexPostCredits==="function"){
-        window.startAlexPostCredits();
-      } else {
-        const target=document.getElementById("alex-test-screen");
-        if(target){
-          document.querySelectorAll(".screen").forEach(s=>s.classList.add("hidden"));
-          target.classList.remove("hidden");
-          if(typeof window.renderAlexQuestion==="function") window.renderAlexQuestion();
-        }
-      }
-    });
-    letter.appendChild(btn);
-  }
-
-  document.addEventListener("DOMContentLoaded",function(){
-    injectLetterContinue();
-    const observer=new MutationObserver(injectLetterContinue);
-    observer.observe(document.body,{subtree:true,attributes:true,attributeFilter:["class"]});
-    setInterval(injectLetterContinue,500);
-  });
-})();
