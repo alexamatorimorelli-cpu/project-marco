@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>PROJECT M.A.R.C.O.</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="scanlines"></div>
+  <main id="app">
+
+    <section class="screen active" id="boot">
+      <div class="terminal">
+        <div class="tiny">NIGHT CITY // SECURE CONNECTION</div>
+        <h1>PROJECT <span>M.A.R.C.O.</span></h1>
+        <div class="status">CLASSIFICATION: <b>RISERVATA</b></div>
+        <div class="status">SUBJECT: <b>MARCO</b></div>
+        <div class="status">STATUS: <b>IDENTIFICATO</b></div>
+        <div class="bootbox">
+          <p>&gt; inizializzazione protocollo...</p>
+          <p>&gt; analisi soggetto...</p>
+          <p>&gt; errore: soggetto eccessivamente sfacciato.</p>
+          <p>&gt; procedura comunque avviata.</p>
+        </div>
+        <button onclick="show('q1')">AVVIA PROTOCOLLO</button>
+      </div>
+    </section>
+
+    <section class="screen" id="q1">
+      <div class="quiz">
+        <div class="counter">01 / 07</div>
+        <h2>Cosa ha colpito subito Alex di Marco?</h2>
+        <div class="answers">
+          <button onclick="next('q2')">La timidezza</button>
+          <button onclick="next('q2')">La sfacciataggine</button>
+          <button onclick="next('q2')">I suoi tre mazzi di Magic</button>
+          <button onclick="next('q2')">Il suo amore per i Pokémon</button>
+        </div>
+      </div>
+    </section>
+
+    <section class="screen" id="q2">
+      <div class="quiz">
+        <div class="counter">02 / 07</div>
+        <h2>Cosa piace molto ad Alex di Marco quando sono in chiamata?</h2>
+        <div class="answers">
+          <button onclick="next('q3')">La sua voce</button>
+          <button onclick="next('q3')">La sua risata</button>
+          <button onclick="next('q3')">Il rumore della tastiera</button>
+          <button onclick="next('q3')">Quando sta zitto</button>
+        </div>
+      </div>
+    </section>
+
+    <section class="screen" id="q3">
+      <div class="quiz">
+        <div class="counter">03 / 07</div>
+        <h2>Quali parole usa spesso Marco?</h2>
+        <div class="answers">
+          <button onclick="next('q4')">Peffò</button>
+          <button onclick="next('q4')">Chill</button>
+          <button onclick="next('q4')">Sborro</button>
+          <button onclick="next('q4')">Tutte e tre</button>
+        </div>
+      </div>
+    </section>
+
+    <section class="screen" id="q4">
+      <div class="quiz">
+        <div class="counter">04 / 07</div>
+        <div class="warning">⚠ CASO RUSSATA</div>
+        <h2>Cosa è successo durante una chiamata?</h2>
+        <div class="answers">
+          <button onclick="next('q5')">Marco ha cantato</button>
+          <button onclick="next('q5')">Marco ha iniziato a parlare di Magic</button>
+          <button class="correct" onclick="evidence()">Marco ha russato</button>
+          <button onclick="next('q5')">Alex si è addormentato</button>
+        </div>
+      </div>
+    </section>
+
+    <section class="screen" id="evidence">
+      <div class="evidence">
+        <div class="stamp">EVIDENCE #001</div>
+        <h2>PROVA FOTOGRAFICA TROVATA</h2>
+        <img src="russata.jpg" alt="Prova fotografica del caso russata">
+        <div class="casefile">
+          <p><b>SUBJECT:</b> Marco</p>
+          <p><b>STATUS:</b> asleep</p>
+          <p><b>SNORING:</b> allegedly</p>
+          <p><b>OFFICIAL STATEMENT:</b> "Non è mai successo."</p>
+        </div>
+        <button onclick="show('q5')">ARCHIVIA PROVA</button>
+      </div>
+    </section>
+
+    <section class="screen" id="q5">
+      <div class="quiz">
+        <div class="counter">05 / 07</div>
+        <h2>Cosa hanno guardato insieme per diverse sere?</h2>
+        <div class="answers">
+          <button onclick="next('q6')">🧱 Il muro</button>
+          <button onclick="next('q6')">🍈 Le tette di Alex</button>
+          <button onclick="next('q6')">🌃 Cyberpunk: Edgerunners</button>
+          <button onclick="next('q6')">🐦 Un documentario sui piccioni</button>
+        </div>
+      </div>
+    </section>
+
+    <section class="screen" id="q6">
+      <div class="quiz">
+        <div class="counter">06 / 07</div>
+        <h2>Quale di queste cose può fare Marco per 45 minuti senza problemi?</h2>
+        <div class="answers">
+          <button onclick="next('q7')">Parlare di Pokémon</button>
+          <button onclick="next('q7')">Parlare di Magic</button>
+          <button onclick="next('q7')">Guardare il soffitto</button>
+          <button onclick="next('q7')">Fare una passeggiata</button>
+        </div>
+      </div>
+    </section>
+
+    <section class="screen" id="q7">
+      <div class="quiz">
+        <div class="counter">07 / 07</div>
+        <div class="boom">FINAL CHECK</div>
+        <h2>Cosa non può misurare questo test?</h2>
+        <div class="answers">
+          <button onclick="finale()">Le capacità di Marco a russare e negare</button>
+          <button onclick="finale()">Le quantità di volte in cui dice "chill"</button>
+          <button onclick="finale()">Quanto è importante per Alex</button>
+        </div>
+      </div>
+    </section>
+
+    <section class="screen" id="puzzi">
+      <div class="secret">
+        <div class="secret-code">SECRET NODE // 404</div>
+        <h2>PUZZI.</h2>
+        <p>...</p>
+        <p class="small">Non c'era altro da dire.</p>
+        <button onclick="show('warning')">ESCI</button>
+      </div>
+    </section>
+
+    <section class="screen" id="warning">
+      <div class="terminal center">
+        <div class="warning">⚠ SYSTEM WARNING</div>
+        <h2>NON PREMERE.</h2>
+        <p>Questa funzione è attualmente disabilitata.</p>
+        <button id="dont" onclick="dontPress()">NON PREMERE</button>
+        <div id="dontmsg"></div>
+      </div>
+    </section>
+
+    <section class="screen" id="truth">
+      <div class="letter">
+        <div class="tiny">PROJECT M.A.R.C.O. // PROTOCOLLO TERMINATO</div>
+        <h2>Pupetto,</h2>
+        <p>Non so bene come si faccia a scrivere una cosa del genere senza renderla tremendamente seria, quindi parto da una cosa semplice:</p>
+        <p><strong>Mi fai sorridere.</strong></p>
+        <p>E questo sembra poco, sembra il minimo indispensabile, ma per me è tanto.</p>
+        <p>E poi c'è la tua risata. La adoro. La prima chiamata, la ricordo solo per questo.</p>
+        <p>So solo che sono contentə di averti incontrato, e che, in mezzo a tutte le cose che avrei potuto trovare aprendo Taimi quel giorno, trovare te è stata una delle più belle.</p>
+        <p>Quindi niente.</p>
+        <p>Questo piccolo casino di sito è per te.</p>
+        <p>Perché mi andava di lasciarti qualcosa che fosse un po' stupido, un po' tenero e un po' nostro, e che dimostrasse quanto tengo a te.</p>
+        <p>E perché evidentemente un messaggio normale non era abbastanza.</p>
+        <p class="signature">- Alex</p>
+        <p class="ps">P.S. La russata è successa.</p>
+      </div>
+    </section>
+
+  </main>
+
+  <div class="corner" id="secretTrigger" title="...">M.A.R.C.O.</div>
+  <script src="script.js"></script>
+</body>
+</html>
