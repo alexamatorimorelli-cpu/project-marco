@@ -66,13 +66,13 @@ function dontPress(){
 }
 
 const alexQuestions=[
- {q:'Quale strumento musicale ha suonato Alex per diversi anni?',a:['Pianoforte','Chitarra classica','Batteria','Basso'],c:1},
- {q:'Quale di queste cose è più probabile che Alex trasformi in un progetto enorme?',a:["Un'idea casuale","Un lavoretto all'uncinetto",'Un regalo','Tutte le precedenti'],c:3},
- {q:'Quale di queste cose fa parte del curriculum di Alex?',a:['Corso HACCP','Certificazione di inglese','Esperienza nella logistica','Tutte le precedenti'],c:3},
- {q:'Quale di queste attività ha fatto Alex come volontariato?',a:['Croce Rossa','Protezione Civile','WWF','Nessuna delle precedenti'],c:0},
- {q:"Quale di queste cose è più probabile che Alex faccia quando ha un'idea per un regalo?",a:['La realizza in cinque minuti','La lascia perdere','La trasforma in un progetto molto più grande del necessario','Compra la prima cosa che trova'],c:2},
- {q:'Quale di queste cose potrebbe far perdere completamente la cognizione del tempo ad Alex?',a:['Fare un progetto creativo','Entrare in un negozio di filati',"Avere un'idea per un regalo",'Tutte le precedenti'],c:3},
- {q:'Quale di queste cose Alex NON potrebbe mai fare senza complicarla?',a:['Preparare un regalo','Organizzare una sorpresa','Fare un semplice sito','A quanto pare, nessuna delle tre'],c:3}
+ {q:'Qual è la classe di Alex?',a:['🧙 Mago','🛠️ Crafter','⚔️ Tank','🌀 Caos puro'],c:1},
+ {q:'Alex ha ottenuto una nuova abilità passiva. Quale?',a:['🎲 "Improvisazione": riesce sempre a trovare un modo per complicare una situazione semplice','🧶 "Crafting Lv. 99": può trasformare qualsiasi idea in un progetto all’uncinetto','💀 "Overthinking": +50% danni quando pensa troppo a una cosa','🧩 "Multiclass": sblocca casualmente una nuova ossessione ogni 3–5 business days'],c:3},
+ {q:'Quale di questi oggetti appartiene all’equipaggiamento di Alex?',a:['🗡️ Una spada +10','🃏 Un mazzo di Magic','🧶 Un uncinetto e una quantità sospetta di filato','🔮 Una Poké Ball'],c:2},
+ {q:'Quale fazione ha reclutato Alex come volontariə?',a:['🟥 Croce Rossa','🟦 Team Rocket','🟩 Gilda dei Maghi','🟨 Confraternita dei Piccioni'],c:0},
+ {q:'Alex riceve una quest secondaria chiamata: "Faccio solo una cosa veloce". Cosa succede?',a:['La completa in 5 minuti','La dimentica','La trasforma in un progetto molto più grande del necessario','Chiede aiuto a Marco'],c:2},
+ {q:'Quale attività garantisce il maggior rischio di perdita della cognizione del tempo?',a:['🧶 Entra in un negozio di filati','🎨 Inizia un progetto creativo','🎁 Deve preparare un regalo','☠️ Tutte le precedenti'],c:3},
+ {q:'BOSS FINALE — Alex ha ricevuto una quest: "crea un piccolo regalo per Marco". Qual è il risultato più probabile?',a:['Un biglietto','Una scatola di cioccolatini','Un piccolo sito','Un intero sistema operativo clandestino dedicato a Marco'],c:3}
 ];
 let ai=0,ascore=0,alexLocked=false;
 function startAlexTest(){ai=0;ascore=0;show('alex-test');renderAlex();}
@@ -86,7 +86,7 @@ function renderAlex(){
 function answerAlex(i){
   if(alexLocked)return;alexLocked=true;const q=alexQuestions[ai];const correct=i===q.c;if(correct)ascore++;
   document.querySelectorAll('#alex-answers button').forEach(b=>b.disabled=true);
-  const f=document.getElementById('alex-feedback');f.textContent=correct?'✓ CORRETTO. +1':'✗ ERRATO. +0';f.className=correct?'correct':'wrong';document.getElementById('alex-score').textContent=ascore;
+  const f=document.getElementById('alex-feedback');f.textContent=correct?'✓ CORRETTO. +1':'✗ ERRATO. +0';if(correct && ai===1){f.innerHTML+=' <small style="display:block;margin-top:8px">PASSIVE ABILITY IDENTIFIED: MULTICLASS · Rarity: LEGENDARY</small>';}f.className=correct?'correct':'wrong';document.getElementById('alex-score').textContent=ascore;
   setTimeout(()=>{ai++;if(ai<7)renderAlex();else finishAlex();},900);
 }
 function finishAlex(){
