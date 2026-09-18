@@ -13,12 +13,15 @@ function answerQuestion(isCorrect, action){
   const box=document.createElement('div'); box.className='answer-feedback '+(isCorrect?'correct':'wrong');
   box.textContent=isCorrect?'✓ CORRETTO. +1':'✗ ERRATO. +0';
   const current=document.querySelector('.screen.active .quiz'); if(current) current.appendChild(box);
-  setTimeout(()=>{box.remove();answerLocked=false;
-    if(action.startsWith('evidence')) evidence();
-    else if(action.startsWith('next')) show(action.match(/'([^']+)'/)[1]);
-    else if(action.startsWith('finale')) finale();
+  setTimeout(()=>{
+    box.remove();
+    answerLocked=false;
+    if(action === 'evidence') evidence();
+    else if(action === 'finale') finale();
+    else show(action);
   },1000);
 }
+
 function next(id){show(id)}
 function evidence(){show('evidence')}
 function finale(){document.querySelectorAll('.screen').forEach(s=>s.classList.remove('active'));const t=document.createElement('section');t.className='screen active';t.innerHTML='<div class="terminal center"><div class="warning">ANALYSIS COMPLETE</div><h2>FINAL SCORE: '+quizScore+'/7</h2><p class="muted">VALUE CANNOT BE CALCULATED.</p></div>';document.getElementById('app').appendChild(t);setTimeout(()=>{t.remove();startGame()},1800)}
